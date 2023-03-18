@@ -1,0 +1,11 @@
+C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Release\MPP_Problema1.exe.config
+C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Release\MPP_Problema1.exe
+C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Release\MPP_Problema1.pdb
+C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\obj\Release\MPP_Problema1.csproj.AssemblyReference.cache
+C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\obj\Release\MPP_Problema1.csproj.SuggestedBindingRedirects.cache
+C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\obj\Release\MPP_Problema1.Form1.resources
+C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\obj\Release\MPP_Problema1.Properties.Resources.resources
+C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\obj\Release\MPP_Problema1.csproj.GenerateResource.cache
+C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\obj\Release\MPP_Problema1.csproj.CoreCompileInputs.cache
+C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\obj\Release\MPP_Problema1.exe
+C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\obj\Release\MPP_Problema1.pdb
