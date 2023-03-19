@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MPP_Problema1.Model
 {
-    internal class User
+    public class User
     {
         public User(string name, string password)
         {

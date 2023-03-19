@@ -1,7 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using MPP_Problema1.Model;
+using MPP_Problema1.Repository;
+using MPP_Problema1.Service;
+using Npgsql;
+using System;
 using System.Windows.Forms;
 
 namespace MPP_Problema1
@@ -14,9 +17,21 @@ namespace MPP_Problema1
         [STAThread]
         static void Main()
         {
+            //init services and repos here
+            ConnectionManager conn = new ConnectionManager();
+            UserRepository userRepository = new UserRepository(conn);
+            UserService userService = new UserService(userRepository);
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Form1(userService));
+
+            
+            
+
+
         }
+
+       
     }
 }

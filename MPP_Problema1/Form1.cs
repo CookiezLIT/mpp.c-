@@ -1,20 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MPP_Problema1.Service;
+using System;
 using System.Windows.Forms;
 
 namespace MPP_Problema1
 {
     public partial class Form1 : Form
     {
-        public Form1()
+
+        public UserService UserServ { get; set; }
+        public Form1(UserService serv)
         {
+            UserServ = serv;
             InitializeComponent();
+         
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -34,9 +32,17 @@ namespace MPP_Problema1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // service -> verificare username
-            // inchide fereastra curenta
-            // deschide fereastra mare
+            bool login = UserServ.LogIn(UsernameInput.Text, PasswordInput.Text);
+            if (login)
+            {
+                throw new Exception("LOGIN SUCCESS!");
+            }
+            else
+            {
+                throw new Exception("LOGIN FAILED");
+            }
         }
+
+        
     }
 }

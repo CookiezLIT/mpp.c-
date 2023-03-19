@@ -51,6 +51,7 @@
             this.UsernameInput.Name = "UsernameInput";
             this.UsernameInput.Size = new System.Drawing.Size(171, 22);
             this.UsernameInput.TabIndex = 1;
+
             // 
             // PasswordInput
             // 
