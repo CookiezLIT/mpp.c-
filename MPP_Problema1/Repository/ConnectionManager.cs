@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Npgsql;
+﻿using Npgsql;
 namespace MPP_Problema1.Repository
 {
     public class ConnectionManager
     {
-        public ConnectionManager() { }
+        public readonly NpgsqlConnection Connection;
 
-        public NpgsqlConnection GetConnection()
+        public ConnectionManager() 
         {
-            NpgsqlConnection conn = new NpgsqlConnection("Server=localhost;Port=5432;Database=tarom;User Id=postgres; Password=root");
-            return conn;
+            Connection = new NpgsqlConnection("Server=localhost;Port=5432;Database=tarom;User Id=postgres; Password=postgres");
         }
     }
 }

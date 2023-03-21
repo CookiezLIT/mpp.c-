@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity.Core.Metadata.Edm;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MPP_Problema1.Model;
 using Npgsql;
 namespace MPP_Problema1.Repository
@@ -11,17 +7,17 @@ namespace MPP_Problema1.Repository
     public class UserRepository : ICrudRepository<User>
     {
 
-        ConnectionManager connectionManager;
+        private readonly ConnectionManager _connectionManager;
 
         public UserRepository(ConnectionManager connectionManager)
         {
-            this.connectionManager = connectionManager;
+            this._connectionManager = connectionManager;
         }
+
         public User Create(User entity)
         {
-            NpgsqlConnection conn = connectionManager.GetConnection();
-            conn.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO public.user VALUES ($1), ($2), ($3) ", conn);
+            _connectionManager.Connection.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO public.user VALUES ($1), ($2), ($3) ", _connectionManager.Connection);
 
             cmd.Parameters.AddWithValue("p1", entity.Id);
             cmd.Parameters.AddWithValue("p2", entity.Name);
@@ -42,7 +38,7 @@ namespace MPP_Problema1.Repository
         public bool isUser(User entity)
         {
 
-            NpgsqlConnection conn = connectionManager.GetConnection();
+            NpgsqlConnection conn = _connectionManager.Connection;
             conn.Open();
             NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM public.user WHERE name='DAN' and password='ROOT';", conn);
 

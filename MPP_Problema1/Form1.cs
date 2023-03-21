@@ -1,5 +1,6 @@
 ﻿using MPP_Problema1.Service;
 using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MPP_Problema1
@@ -7,10 +8,11 @@ namespace MPP_Problema1
     public partial class Form1 : Form
     {
 
-        public UserService UserServ { get; set; }
-        public Form1(UserService serv)
+        public readonly UserService _userService;
+
+        public Form1()
         {
-            UserServ = serv;
+            _userService = Program.GetService<UserService>();
             InitializeComponent();
          
         }
@@ -30,9 +32,9 @@ namespace MPP_Problema1
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_ClickAsync(object sender, EventArgs e)
         {
-            bool login = UserServ.LogIn(UsernameInput.Text, PasswordInput.Text);
+            bool login = await _userService.LogInAsync(UsernameInput.Text, PasswordInput.Text);
             if (login)
             {
                 throw new Exception("LOGIN SUCCESS!");

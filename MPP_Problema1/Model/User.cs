@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data;
 
 namespace MPP_Problema1.Model
 {
@@ -15,12 +12,24 @@ namespace MPP_Problema1.Model
             Password = password;
         }
 
+        public User(Guid id, string name, string password)
+        {
+            Id = id;
+            Name = name;
+            Password = password;
+        }
+
+        public User(IDataReader reader)
+        {
+            this.Id = (Guid)reader["id"];
+            this.Name = (string)reader["name"];
+            this.Password = (string)reader["password"];
+        }
+
         public Guid Id { get; }
 
         public string Name { get; }
 
         public string Password { get; }
-
-        
     }
 }
