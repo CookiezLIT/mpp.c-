@@ -1,8 +1,6 @@
 C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Debug\MPP_Problema1.exe.config
 C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Debug\MPP_Problema1.exe
 C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Debug\MPP_Problema1.pdb
-C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Debug\EntityFramework.dll
-C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Debug\Microsoft.Bcl.HashCode.dll
 C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll
@@ -42,8 +40,6 @@ C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Debug\System.Text.J
 C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Debug\System.Threading.Channels.dll
 C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Debug\System.Threading.Tasks.Extensions.dll
 C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Debug\System.ValueTuple.dll
-C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Debug\EntityFramework.xml
-C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
 C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Debug\Microsoft.Bcl.HashCode.xml
 C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Debug\Microsoft.Extensions.Configuration.xml
@@ -85,7 +81,6 @@ C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Debug\System.Thread
 C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Debug\System.ValueTuple.xml
 C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\obj\Debug\MPP_Problema1.csproj.AssemblyReference.cache
 C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\obj\Debug\MPP_Problema1.csproj.SuggestedBindingRedirects.cache
-C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\obj\Debug\MPP_Problema1.exe.config
 C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\obj\Debug\MPP_Problema1.Form1.resources
 C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\obj\Debug\MPP_Problema1.Properties.Resources.resources
 C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\obj\Debug\MPP_Problema1.csproj.GenerateResource.cache

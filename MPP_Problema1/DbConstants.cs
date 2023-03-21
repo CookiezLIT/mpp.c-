@@ -5,7 +5,7 @@
         public const string Schema = "public";
         public static class Tables
         {
-            public const string Users = "public.users";
+            public const string Users = "public.user";
             public const string Flights = "public.flights";
 
         }

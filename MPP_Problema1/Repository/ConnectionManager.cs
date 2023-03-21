@@ -7,7 +7,7 @@ namespace MPP_Problema1.Repository
 
         public ConnectionManager() 
         {
-            Connection = new NpgsqlConnection("Server=localhost;Port=5432;Database=tarom;User Id=postgres; Password=postgres");
+            Connection = new NpgsqlConnection("Server=localhost;Port=5432;Database=tarom;User Id=postgres; Password=root");
         }
     }
 }
