@@ -1,6 +1,6 @@
 ﻿namespace MPP_Problema1
 {
-    partial class MainForm
+    partial class Cautare
     {
         /// <summary>
         /// Required designer variable.
@@ -35,7 +35,9 @@
             this.flightDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flightTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.capacity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonStartCautare = new System.Windows.Forms.Button();
+            this.departureTextBox = new System.Windows.Forms.TextBox();
+            this.buttonCauta = new System.Windows.Forms.Button();
+            this.FlightDateTimePicker = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,13 +51,12 @@
             this.flightDate,
             this.flightTime,
             this.capacity});
-            this.dataGridView1.Location = new System.Drawing.Point(0, 60);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 87);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(788, 332);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // id
             // 
@@ -100,28 +101,46 @@
             this.capacity.Name = "capacity";
             this.capacity.Width = 125;
             // 
-            // buttonStartCautare
+            // departureTextBox
             // 
-            this.buttonStartCautare.Location = new System.Drawing.Point(12, 12);
-            this.buttonStartCautare.Name = "buttonStartCautare";
-            this.buttonStartCautare.Size = new System.Drawing.Size(75, 23);
-            this.buttonStartCautare.TabIndex = 1;
-            this.buttonStartCautare.Text = "cautare";
-            this.buttonStartCautare.UseVisualStyleBackColor = true;
-            this.buttonStartCautare.Click += new System.EventHandler(this.buttonStartCautare_Click);
+            this.departureTextBox.Location = new System.Drawing.Point(13, 13);
+            this.departureTextBox.Name = "departureTextBox";
+            this.departureTextBox.Size = new System.Drawing.Size(217, 22);
+            this.departureTextBox.TabIndex = 1;
             // 
-            // MainForm
+            // buttonCauta
+            // 
+            this.buttonCauta.Location = new System.Drawing.Point(608, 13);
+            this.buttonCauta.Name = "buttonCauta";
+            this.buttonCauta.Size = new System.Drawing.Size(75, 23);
+            this.buttonCauta.TabIndex = 2;
+            this.buttonCauta.Text = "cauta";
+            this.buttonCauta.UseVisualStyleBackColor = true;
+            this.buttonCauta.Click += new System.EventHandler(this.buttonCauta_Click);
+            // 
+            // FlightDateTimePicker
+            // 
+            this.FlightDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.FlightDateTimePicker.Location = new System.Drawing.Point(254, 13);
+            this.FlightDateTimePicker.Name = "FlightDateTimePicker";
+            this.FlightDateTimePicker.Size = new System.Drawing.Size(316, 22);
+            this.FlightDateTimePicker.TabIndex = 3;
+            // 
+            // Cautare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.buttonStartCautare);
+            this.Controls.Add(this.FlightDateTimePicker);
+            this.Controls.Add(this.buttonCauta);
+            this.Controls.Add(this.departureTextBox);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "MainForm";
-            this.Text = "MainForm";
+            this.Name = "Cautare";
+            this.Text = "Cautare";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -134,6 +153,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn flightDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn flightTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn capacity;
-        private System.Windows.Forms.Button buttonStartCautare;
+        private System.Windows.Forms.TextBox departureTextBox;
+        private System.Windows.Forms.Button buttonCauta;
+        private System.Windows.Forms.DateTimePicker FlightDateTimePicker;
     }
 }

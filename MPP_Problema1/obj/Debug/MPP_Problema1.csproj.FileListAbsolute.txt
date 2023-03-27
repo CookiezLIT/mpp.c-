@@ -193,3 +193,4 @@ C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Debug\Serilog.xml
 C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Debug\Serilog.Sinks.File.pdb
 C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Debug\Serilog.Sinks.File.xml
 C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\obj\Debug\MPP_Problema1.MainForm.resources
+C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\obj\Debug\MPP_Problema1.Cautare.resources

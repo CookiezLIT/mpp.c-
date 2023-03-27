@@ -19,7 +19,7 @@ namespace MPP_Problema1.Service
 
         public List<Flight> GetFlights()
         {
-            return _flightRepository.GetAllAsync().Result;
+            return _flightRepository.GetAllAsync();
         }
     }
 }

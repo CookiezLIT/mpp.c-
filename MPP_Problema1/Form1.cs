@@ -35,9 +35,9 @@ namespace MPP_Problema1
 
         }
 
-        private async void button1_ClickAsync(object sender, EventArgs e)
+        private void button1_ClickAsync(object sender, EventArgs e)
         {
-            bool login = await _userService.LogInAsync(UsernameInput.Text, PasswordInput.Text);
+            bool login = _userService.LogInAsync(UsernameInput.Text, PasswordInput.Text);
             if (login)
             {
                 var main  = new MainForm(this._flightService);

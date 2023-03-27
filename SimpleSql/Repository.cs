@@ -19,57 +19,57 @@ namespace SimpleSql
             _logger = logger;
         }
 
-        public async Task<T?> GetAsync(Guid id)
+        public T? GetAsync(Guid id)
         {
-            await _connection.OpenAsync();
+            _connection.Open();
             var command = SqlCommandsFor<T>.Get(id, _connection);
             T? entity = null;
 
-            using (var reader = await command.ExecuteReaderAsync())
+            using (var reader = command.ExecuteReader())
             {
                 if (!reader.HasRows)
                 {
                     return null;
                 }
-                while (await reader.ReadAsync())
+                while (reader.Read())
                 {
                     entity = reader.Map<T>();
                 }
             }
-            await _connection.CloseAsync();
+            _connection.Close();
             return entity;
         }
 
-        public async Task<List<T>> GetAllAsync()
+        public List<T> GetAllAsync()
         {
-            await _connection.OpenAsync();
+            _connection.Open();
             _logger.Information("test");
             var command = SqlCommandsFor<T>.GetAll(_connection);
             List<T> entities = new List<T>();
 
-            using (var reader = await command.ExecuteReaderAsync())
+            using (var reader = command.ExecuteReader())
             {
                 if (!reader.HasRows)
                 {
                     return (List<T>)Enumerable.Empty<T>();
                 }
-                while (await reader.ReadAsync())
+                while (reader.Read())
                 {
                     //entities.Add((T)Activator.CreateInstance(typeof(T), reader));
                     entities.Add(reader.Map<T>());
                 }
             }
-            await _connection.CloseAsync();
+            _connection.Close();
             return entities;
         }
 
-        public async Task<T?> CreateAsync(T entity)
+        public T? CreateAsync(T entity)
         {
-            await _connection.OpenAsync();
+            _connection.Open();
             var command = SqlCommandsFor<T>.Create(entity, _connection);
 
-            var queryResult = await command.ExecuteNonQueryAsync();
-            await _connection.CloseAsync();
+            var queryResult =  command.ExecuteNonQuery();
+             _connection.Close();
 
             if (queryResult != -1)
             {
@@ -78,13 +78,13 @@ namespace SimpleSql
             return null;
         }
 
-        public async Task<T?> UpdateAsync(T entity)
+        public T? UpdateAsync(T entity)
         {
-            await _connection.OpenAsync();
+             _connection.Open();
             var command = SqlCommandsFor<T>.Update(entity, _connection);
 
-            var queryResult = await command.ExecuteNonQueryAsync();
-            await _connection.CloseAsync();
+            var queryResult =  command.ExecuteNonQuery();
+             _connection.Close();
 
             if (queryResult != -1)
             {
@@ -93,13 +93,13 @@ namespace SimpleSql
             return null;
         }
 
-        public async Task<bool> DeleteAsync(Guid id)
+        public bool DeleteAsync(Guid id)
         {
-            await _connection.OpenAsync();
+             _connection.Open();
             var command = SqlCommandsFor<T>.Delete(id, _connection);
 
-            var queryResult = await command.ExecuteNonQueryAsync();
-            await _connection.CloseAsync();
+            var queryResult =  command.ExecuteNonQuery();
+             _connection.Close();
 
             if (queryResult != -1)
             {

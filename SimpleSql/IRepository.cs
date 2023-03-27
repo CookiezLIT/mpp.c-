@@ -7,14 +7,14 @@ namespace SimpleSql
 {
     public interface IRepository<T>
     {
-        Task<T?> GetAsync(Guid id);
+        T? GetAsync(Guid id);
 
-        Task<List<T>> GetAllAsync();
+        List<T> GetAllAsync();
 
-        Task<T?> UpdateAsync(T entity);
+        T? UpdateAsync(T entity);
 
-        Task<bool> DeleteAsync(Guid id);
+        bool DeleteAsync(Guid id);
 
-        Task<T?> CreateAsync(T entity);
+        T? CreateAsync(T entity);
     }
 }

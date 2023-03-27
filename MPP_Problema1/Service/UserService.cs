@@ -21,9 +21,9 @@ namespace MPP_Problema1.Service
         //    this.UserRepository = repo;
         //}
 
-        public async Task<bool> LogInAsync(string username, string password)
+        public bool LogInAsync(string username, string password)
         {
-            var users = await _repo.GetAllAsync();
+            var users = _repo.GetAllAsync();
 
             //return this.UserRepository.isUser(user);
 
@@ -32,10 +32,10 @@ namespace MPP_Problema1.Service
 
         }
 
-        public async Task<User> Register(string username, string password)
+        public User Register(string username, string password)
         {
             User user = new User(username, password);
-            return await _repo.CreateAsync(user);
+            return _repo.CreateAsync(user);
         }
     }
 }
