@@ -1,8 +1,10 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data;
 
 namespace MPP_Problema1.Model
 {
+    [Table("public.user")]
     public class User
     {
         public User(string name, string password)
@@ -26,10 +28,20 @@ namespace MPP_Problema1.Model
             this.Password = (string)reader["password"];
         }
 
+        public User(object id, object name, object password)
+        {
+            this.Id = (Guid)id;
+            this.Name = (string)name;
+            this.Password = (string)password;
+        }
+
+        [Column("id")]
         public Guid Id { get; }
 
+        [Column("name")]
         public string Name { get; }
 
+        [Column("password")]
         public string Password { get; }
     }
 }

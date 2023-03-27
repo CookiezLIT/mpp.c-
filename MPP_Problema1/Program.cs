@@ -1,10 +1,12 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using MPP_Problema1.Model;
 using MPP_Problema1.Repository;
 using MPP_Problema1.Service;
 using Npgsql;
+using Serilog;
+using SimpleSql;
 using System;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,25 +14,62 @@ namespace MPP_Problema1
 {
     public static class Program
     {
+
+        private const string LogFileName = "app.log";
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static async Task Main()
         {
-            //ConnectionManager connectionManager = new ConnectionManager();
+            ConnectionManager connectionManager = new ConnectionManager();
             //DatabaseContext context = new DatabaseContext(connectionManager);
 
             //var r = await context.GetUserAsync(Guid.Parse("370a2faa-9bc6-4743-b878-e6365aeec6d4"));
 
 
             //init services and repos here
-            
+
+            //var user = new Model.User(Guid.NewGuid(), "name", "password");
+
+            //var q = Queries.Generic<Model.User>.Create(user, connectionManager.Connection);
+            //var q1 = Queries.Generic<Model.User, DbConstants.Tables.Users>.Create(user, connectionManager.Connection);
+
+            //var create = SqlCommandsFor<Model.User>.Create(user, connectionManager.Connection);
+            //var getAll = SqlCommandsFor<Model.User>.GetAll(connectionManager.Connection);
+            //var update = SqlCommandsFor<Model.User>.Update(user, connectionManager.Connection);
+            //var delete = SqlCommandsFor<Model.User>.Delete(user.Id, connectionManager.Connection);
+            //var get = SqlCommandsFor<Model.User>.Get(user.Id, connectionManager.Connection);
+
+
+
+            //var flight = new Model.Flight(Guid.NewGuid(), "Cluj", "Bucuresti", DateTime.Now, DateTime.Now.AddHours(2));
+
+            //var createFlight = SqlCommandsFor<Model.Flight>.Create(flight, connectionManager.Connection);
+            //var getFlights = SqlCommandsFor<Model.Flight>.GetAll(connectionManager.Connection);
+            //var updateFlight = SqlCommandsFor<Model.Flight>.Update(flight, connectionManager.Connection);
+            //var deleteFlight = SqlCommandsFor<Model.Flight>.Delete(flight.Id, connectionManager.Connection);
+            //var getByIdFlight = SqlCommandsFor<Model.Flight>.Get(flight.Id, connectionManager.Connection);
+
+
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            ConfigureServices();
+            Log.Logger = new LoggerConfiguration()
+                .WriteTo.File(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, LogFileName))
+                .CreateLogger();
+
+            ConfigureServices(connectionManager.Connection);
+
+            var userRepository = new SimpleSql.Repository<Model.User>(connectionManager.Connection, Log.Logger);
+
+            var flightRepositroy = new SimpleSql.Repository<Model.Flight>(connectionManager.Connection, Log.Logger);
+
+            var users = await userRepository.GetAllAsync();
+
+            var flight = await flightRepositroy.CreateAsync(new Model.Flight("cluj", "constanta", DateTime.Now, DateTime.Now.AddHours(2)));
+            //var flight = await flightrepository.getasync(guid.parse("384d4c57-b7f0-44cf-be98-3048749e824d"));
 
             Application.Run(new Form1());
 
@@ -38,12 +77,14 @@ namespace MPP_Problema1
 
         static IServiceProvider ServiceProvider { get; set; }
 
-        static void ConfigureServices()
+        static void ConfigureServices(NpgsqlConnection connection)
         {
             ServiceCollection services = new ServiceCollection();
+
             services.AddScoped<ConnectionManager>();
-            services.AddScoped<DatabaseContext>();
+            services.AddScoped<IRepository<Model.User>, Repository<Model.User>>(o => new Repository<Model.User>(connection, Log.Logger));
             services.AddScoped<UserService>();
+            
             ServiceProvider = services.BuildServiceProvider();
         }
 

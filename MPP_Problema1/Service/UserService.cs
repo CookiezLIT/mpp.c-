@@ -1,4 +1,7 @@
 ﻿using MPP_Problema1.Model;
+using MPP_Problema1.Repository;
+using SimpleSql;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace MPP_Problema1.Service
@@ -7,11 +10,11 @@ namespace MPP_Problema1.Service
     {
         //public UserRepository UserRepository { get; set; }
 
-        public readonly DatabaseContext _dbContext;
+        public readonly IRepository<User> _repo;
 
-        public UserService(DatabaseContext dbContext)
+        public UserService(IRepository<User> repo)
         {
-            _dbContext = dbContext;
+            _repo = repo;
         }
 
         //public UserService(UserRepository repo) {
@@ -20,17 +23,19 @@ namespace MPP_Problema1.Service
 
         public async Task<bool> LogInAsync(string username, string password)
         {
-            User user = new User(username, password);
+            var users = await _repo.GetAllAsync();
+
             //return this.UserRepository.isUser(user);
 
-            return await _dbContext.UserExistsAsync(user);
+            return users.Any(x => x.Name == username && x.Password == password);
+
 
         }
 
         public async Task<User> Register(string username, string password)
         {
             User user = new User(username, password);
-            return await _dbContext.CreateAsync(user);
+            return await _repo.CreateAsync(user);
         }
     }
 }
