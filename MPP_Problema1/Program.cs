@@ -6,6 +6,7 @@ using Npgsql;
 using Serilog;
 using SimpleSql;
 using System;
+using System.ComponentModel;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -64,14 +65,23 @@ namespace MPP_Problema1
 
             var userRepository = new SimpleSql.Repository<Model.User>(connectionManager.Connection, Log.Logger);
 
-            var flightRepositroy = new SimpleSql.Repository<Model.Flight>(connectionManager.Connection, Log.Logger);
+            var flightRepository = new SimpleSql.Repository<Model.Flight>(connectionManager.Connection, Log.Logger);
 
-            var users = await userRepository.GetAllAsync();
+            var flightClientRepositroy = new SimpleSql.Repository<Model.FlightClient>(connectionManager.Connection, Log.Logger);
 
-            var flight = await flightRepositroy.CreateAsync(new Model.Flight("cluj", "constanta", DateTime.Now, DateTime.Now.AddHours(2)));
-            //var flight = await flightrepository.getasync(guid.parse("384d4c57-b7f0-44cf-be98-3048749e824d"));
+            //var users = await userRepository.GetAllAsync();
 
-            Application.Run(new Form1());
+            //var flight = await flightRepositroy.CreateAsync(new Model.Flight("cluj", "constanta", DateTime.Now, DateTime.Now.AddHours(2), 50));
+
+            //var flightClient = await flightClientRepositroy.CreateAsync(new Model.FlightClient("Dandoti Denisz", "Pandurilor 88", "ddandoti@endava.eu"));
+
+
+            var userService = new UserService(userRepository);
+            var flightService = new FlightService(flightRepository);
+
+            Application.Run(new Form1(userService,flightService));
+
+
 
         }
 
@@ -83,7 +93,11 @@ namespace MPP_Problema1
 
             services.AddScoped<ConnectionManager>();
             services.AddScoped<IRepository<Model.User>, Repository<Model.User>>(o => new Repository<Model.User>(connection, Log.Logger));
+            services.AddScoped<IRepository<Model.Flight>, Repository<Model.Flight>>(o => new Repository<Model.Flight>(connection, Log.Logger));
+            services.AddScoped<IRepository<Model.FlightClient>, Repository<Model.FlightClient>>(o => new Repository<Model.FlightClient>(connection, Log.Logger));
+            services.AddScoped<IRepository<Model.FlightTicket>, Repository<Model.FlightTicket>>(o => new Repository<Model.FlightTicket>(connection, Log.Logger));
             services.AddScoped<UserService>();
+            services.AddScoped<FlightService>();
             
             ServiceProvider = services.BuildServiceProvider();
         }

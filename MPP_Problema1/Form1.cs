@@ -9,10 +9,13 @@ namespace MPP_Problema1
     {
 
         public readonly UserService _userService;
+        public readonly FlightService _flightService;
 
-        public Form1()
+        public Form1(UserService userServ, FlightService flightServ)
         {
-            _userService = Program.GetService<UserService>();
+            //_userService = Program.GetService<UserService>();
+            _userService = userServ;
+            _flightService = flightServ;
             InitializeComponent();
          
         }
@@ -37,7 +40,9 @@ namespace MPP_Problema1
             bool login = await _userService.LogInAsync(UsernameInput.Text, PasswordInput.Text);
             if (login)
             {
-                throw new Exception("LOGIN SUCCESS!");
+                var main  = new MainForm(this._flightService);
+                main.Visible = true;
+                main.Show();
             }
             else
             {

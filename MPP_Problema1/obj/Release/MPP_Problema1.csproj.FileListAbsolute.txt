@@ -9,8 +9,6 @@ C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\obj\Release\MPP_Problem
 C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\obj\Release\MPP_Problema1.csproj.CoreCompileInputs.cache
 C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\obj\Release\MPP_Problema1.exe
 C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\obj\Release\MPP_Problema1.pdb
-C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Release\EntityFramework.dll
-C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Release\EntityFramework.SqlServer.dll
 C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Release\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Release\Microsoft.Bcl.HashCode.dll
 C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Release\Microsoft.Extensions.Configuration.Abstractions.dll
@@ -50,8 +48,6 @@ C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Release\System.Text
 C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Release\System.Threading.Channels.dll
 C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Release\System.Threading.Tasks.Extensions.dll
 C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Release\System.ValueTuple.dll
-C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Release\EntityFramework.xml
-C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Release\EntityFramework.SqlServer.xml
 C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Release\Microsoft.Bcl.AsyncInterfaces.xml
 C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Release\Microsoft.Bcl.HashCode.xml
 C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Release\Microsoft.Extensions.Configuration.xml
@@ -91,5 +87,12 @@ C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Release\System.Text
 C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Release\System.Threading.Channels.xml
 C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Release\System.Threading.Tasks.Extensions.xml
 C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Release\System.ValueTuple.xml
-C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\obj\Release\MPP_Problema1.exe.config
 C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\obj\Release\MPP_Problema1.csproj.CopyComplete
+C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Release\Serilog.dll
+C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Release\Serilog.Sinks.File.dll
+C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Release\SimpleSql.dll
+C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Release\SimpleSql.pdb
+C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Release\Serilog.xml
+C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Release\Serilog.Sinks.File.pdb
+C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\bin\Release\Serilog.Sinks.File.xml
+C:\Users\dlnita\source\repos\MPP_Problema1\MPP_Problema1\obj\Release\MPP_Problema1.MainForm.resources
