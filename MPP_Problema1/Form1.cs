@@ -10,12 +10,14 @@ namespace MPP_Problema1
 
         public readonly UserService _userService;
         public readonly FlightService _flightService;
+        public readonly FlightTicketService _flightTicketService;
 
-        public Form1(UserService userServ, FlightService flightServ)
+        public Form1(UserService userServ, FlightService flightServ, FlightTicketService flightTicketService)
         {
             //_userService = Program.GetService<UserService>();
             _userService = userServ;
             _flightService = flightServ;
+            _flightTicketService = flightTicketService;
             InitializeComponent();
          
         }
@@ -40,7 +42,7 @@ namespace MPP_Problema1
             bool login = _userService.LogInAsync(UsernameInput.Text, PasswordInput.Text);
             if (login)
             {
-                var main  = new MainForm(this._flightService);
+                var main  = new MainForm(this._flightService, this._flightTicketService);
                 main.Visible = true;
                 main.Show();
             }

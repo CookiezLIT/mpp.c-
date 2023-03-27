@@ -40,7 +40,7 @@ namespace SimpleSql
             {
                 sb.Append($"{keyValuePair.Key}='{keyValuePair.Value}', ");
             }
-            sb.Remove(sb.Length - 3, 2);
+            sb.Remove(sb.Length - 2, 2);
             return sb.ToString();
         }
 

@@ -67,7 +67,10 @@ namespace MPP_Problema1
 
             var flightRepository = new SimpleSql.Repository<Model.Flight>(connectionManager.Connection, Log.Logger);
 
-            var flightClientRepositroy = new SimpleSql.Repository<Model.FlightClient>(connectionManager.Connection, Log.Logger);
+            var flightClientRepository = new SimpleSql.Repository<Model.FlightClient>(connectionManager.Connection, Log.Logger);
+
+            var flightTicketRepository = new SimpleSql.Repository<Model.FlightTicket>(connectionManager.Connection, Log.Logger);
+
 
             //var users = await userRepository.GetAllAsync();
 
@@ -78,10 +81,10 @@ namespace MPP_Problema1
 
             var userService = new UserService(userRepository);
             var flightService = new FlightService(flightRepository);
-
+            var flightTicketService = new FlightTicketService(flightRepository, flightClientRepository, flightTicketRepository);
             
 
-            Application.Run(new Form1(userService,flightService));
+            Application.Run(new Form1(userService,flightService, flightTicketService));
 
 
 

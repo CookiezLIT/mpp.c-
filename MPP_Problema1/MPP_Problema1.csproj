@@ -266,9 +266,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controller\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="docs.txt" />
   </ItemGroup>

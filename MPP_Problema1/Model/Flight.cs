@@ -24,7 +24,7 @@ namespace MPP_Problema1.Model
         public DateTime ArrivalDateTime { get; }
 
         [Column ("capacity")]
-        public int Capacity { get; }
+        public int Capacity { get; set; }
         public Flight(string departure, string destination, DateTime flightDate, DateTime flightTime, int capacity)
         {
             this.Id = Guid.NewGuid();

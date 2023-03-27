@@ -19,11 +19,32 @@ namespace MPP_Problema1.Service
             _flightTicketRepository = flightTicketRepository;
         }
 
-        public void BuyTicketForClient(Flight flight, string clientName, string clientAddress, string clientEmail)
+        public bool BuyTicketForClient(Guid flight_id, string clientName, string clientAddress, string clientEmail)
         {
-            //find flight with given destination and time 
 
-            return;
+            //find flight with given destination and time 
+            Flight flight = _flightRepository.GetAsync(flight_id);
+
+            if (flight == null)
+            {
+                return false;
+            }
+
+            //save client to the repo
+            FlightClient client = new FlightClient(clientName, clientAddress, clientEmail);
+
+            _flightClientRepository.CreateAsync(client);
+            
+            //save the ticket to the repo
+            FlightTicket ticket = new FlightTicket(client.Id, flight.Id);
+
+            _flightTicketRepository.CreateAsync(ticket);
+
+            //update the flight capacity
+            flight.Capacity = flight.Capacity - 1;
+            _flightRepository.UpdateAsync(flight);
+
+            return true;
         }
     }
 }
