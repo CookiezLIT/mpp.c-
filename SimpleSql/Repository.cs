@@ -21,6 +21,7 @@ namespace SimpleSql
 
         public T? GetAsync(Guid id)
         {
+            _logger.Information("getting item:");
             _connection.Open();
             var command = SqlCommandsFor<T>.Get(id, _connection);
             T? entity = null;
@@ -43,7 +44,7 @@ namespace SimpleSql
         public List<T> GetAllAsync()
         {
             _connection.Open();
-            _logger.Information("test");
+            _logger.Information("getting all items");
             var command = SqlCommandsFor<T>.GetAll(_connection);
             List<T> entities = new List<T>();
 
@@ -65,6 +66,7 @@ namespace SimpleSql
 
         public T? CreateAsync(T entity)
         {
+            _logger.Information("creating item");
             _connection.Open();
             var command = SqlCommandsFor<T>.Create(entity, _connection);
 
@@ -80,6 +82,7 @@ namespace SimpleSql
 
         public T? UpdateAsync(T entity)
         {
+            _logger.Information("updating item");
              _connection.Open();
             var command = SqlCommandsFor<T>.Update(entity, _connection);
 
@@ -95,6 +98,7 @@ namespace SimpleSql
 
         public bool DeleteAsync(Guid id)
         {
+            _logger.Information($"Delete {id}");
              _connection.Open();
             var command = SqlCommandsFor<T>.Delete(id, _connection);
 
