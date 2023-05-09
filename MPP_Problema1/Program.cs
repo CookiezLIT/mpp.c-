@@ -79,7 +79,7 @@ namespace MPP_Problema1
             //var flightClient = await flightClientRepositroy.CreateAsync(new Model.FlightClient("Dandoti Denisz", "Pandurilor 88", "ddandoti@endava.eu"));
 
 
-            var userService = new UserService(userRepository);
+            var userService = new UserService();
             var flightService = new FlightService(flightRepository);
             var flightTicketService = new FlightTicketService(flightRepository, flightClientRepository, flightTicketRepository);
             
@@ -97,7 +97,9 @@ namespace MPP_Problema1
             ServiceCollection services = new ServiceCollection();
 
             services.AddScoped<ConnectionManager>();
-            services.AddScoped<IRepository<Model.User>, Repository<Model.User>>(o => new Repository<Model.User>(connection, Log.Logger));
+            //services.AddScoped<IRepository<Model.User>, Repository<Model.User>>(o => new Repository<Model.User>(connection, Log.Logger));
+            
+            
             services.AddScoped<IRepository<Model.Flight>, Repository<Model.Flight>>(o => new Repository<Model.Flight>(connection, Log.Logger));
             services.AddScoped<IRepository<Model.FlightClient>, Repository<Model.FlightClient>>(o => new Repository<Model.FlightClient>(connection, Log.Logger));
             services.AddScoped<IRepository<Model.FlightTicket>, Repository<Model.FlightTicket>>(o => new Repository<Model.FlightTicket>(connection, Log.Logger));

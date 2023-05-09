@@ -1,20 +1,16 @@
 ﻿using MPP_Problema1.Model;
 using MPP_Problema1.Repository;
-using SimpleSql;
+using System.ComponentModel.Composition.Hosting;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace MPP_Problema1.Service
 {
     public class UserService
     {
-        //public UserRepository UserRepository { get; set; }
-
-        public readonly IRepository<User> _repo;
-
-        public UserService(IRepository<User> repo)
+        
+        public UserService()
         {
-            _repo = repo;
+
         }
 
         //public UserService(UserRepository repo) {
@@ -23,19 +19,23 @@ namespace MPP_Problema1.Service
 
         public bool LogInAsync(string username, string password)
         {
-            var users = _repo.GetAllAsync();
+            using (var db = new UserContext())
+            {
+                var exists = db.Users.Any(u => u.Name == username && u.Password == password);
 
-            //return this.UserRepository.isUser(user);
-
-            return users.Any(x => x.Name == username && x.Password == password);
-
-
+                return exists;
+            }
         }
 
         public User Register(string username, string password)
         {
-            User user = new User(username, password);
-            return _repo.CreateAsync(user);
+            using (var db = new UserContext())
+            {
+                User user = new User(username, password);
+                db.Users.Add(user);
+                db.SaveChanges();
+                return user;
+            }
         }
     }
 }
