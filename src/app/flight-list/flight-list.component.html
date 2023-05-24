@@ -1,0 +1,27 @@
+<h2>Flight List</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Departure</th>
+      <th>Destination</th>
+      <th>Departure DateTime</th>
+      <th>Arrival DateTime</th>
+      <th>Capacity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let flight of flights">
+      <td>{{ flight.id }}</td>
+      <td>{{ flight.departure }}</td>
+      <td>{{ flight.destination }}</td>
+      <td>{{ flight.departureDateTime | date }}</td>
+      <td>{{ flight.arrivalDateTime | date }}</td>
+      <td>{{ flight.capacity }}</td>
+      <td>
+        <button (click)="deleteFlight(flight.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,30 @@
+<h2>Create Flight</h2>
+
+<form (ngSubmit)="createFlight()">
+  <div class="form-group">
+    <label for="departure">Departure:</label>
+    <input type="text" id="departure" [(ngModel)]="flight.departure" name="departure" required>
+  </div>
+
+  <div class="form-group">
+    <label for="destination">Destination:</label>
+    <input type="text" id="destination" [(ngModel)]="flight.destination" name="destination" required>
+  </div>
+
+  <div class="form-group">
+    <label for="departureDateTime">Departure Date and Time:</label>
+    <input type="datetime-local" id="departureDateTime" [(ngModel)]="flight.departureDateTime" name="departureDateTime" required>
+  </div>
+
+  <div class="form-group">
+    <label for="arrivalDateTime">Arrival Date and Time:</label>
+    <input type="datetime-local" id="arrivalDateTime" [(ngModel)]="flight.arrivalDateTime" name="arrivalDateTime" required>
+  </div>
+
+  <div class="form-group">
+    <label for="capacity">Capacity:</label>
+    <input type="number" id="capacity" [(ngModel)]="flight.capacity" name="capacity" required>
+  </div>
+
+  <button type="submit">Create</button>
+</form>

@@ -1,0 +1,7 @@
+<div *ngIf="flight">
+    <h2>{{ flight.departure }} to {{ flight.destination }}</h2>
+    <p>Departure: {{ flight.departureDateTime | date }}</p>
+    <p>Arrival: {{ flight.arrivalDateTime | date }}</p>
+    <p>Capacity: {{ flight.capacity }}</p>
+  </div>
+  
