@@ -1,5 +1,6 @@
 ﻿using MPP_Problema1.Model;
 using MPP_Problema1.Repository;
+using System;
 using System.ComponentModel.Composition.Hosting;
 using System.Linq;
 
@@ -22,7 +23,7 @@ namespace MPP_Problema1.Service
             using (var db = new UserContext())
             {
                 var exists = db.Users.Any(u => u.Name == username && u.Password == password);
-
+                Console.Write(username + " " + password);
                 return exists;
             }
         }
